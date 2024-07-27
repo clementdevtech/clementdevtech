@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Portfolio Website - software developer</title>
+   <script src="https://kit.fontawesome.com/31b957e4f6.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: #fff;
+        }
+
+        #header {
+            width: 100%;
+            height: 100vh;
+            background-image: url('photos/image 2.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 30vw 30vw;
+            background-position-y: 7vw;
+        }
+
+        .container {
+            padding: 10px 10%;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 200px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-text {
+            margin-top: 20%;
+            font-size: 30px;
+        }
+
+        .header-text h1 {
+            font-size: 60px;
+            margin-top: 20px;
+        }
+
+        .header-text h1 span {
+            color: #ff004f;
+        }
+
+        #about {
+            padding: 80px 0;
+            color: #ababaa;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .about-col-1 {
+            flex-basis: 35%;
+        }
+
+        .about-col-1 img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .about-col-2 {
+            flex-basis: 60%;
+        }
+
+        .sub-title {
+            font-size: 60px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+        }
+
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+
+        .tab-links.active-link::after {
+            width: 100%;
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .tab-contents ul li span {
+            color: #b54769;
+            font-size: 14px;
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+        }
+
+        #services {
+            padding: 30px 0;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .services-list div {
+            background: #262626;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            border-radius: 10px;
+            transition: background 0.5s, transform 0.5s;
+        }
+
+        .services-list div i {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        .services-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .services-list div a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .services-list div:hover {
+            background: #ff004f;
+            transform: translateY(-10px);
+        }
+
+        #portfolio {
+            padding: 50px 0;
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .layer {
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+
+        .layer h3 {
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .layer a {
+            margin-top: 20px;
+            color: #ff004f;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 60px;
+            background: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .work:hover img {
+            transform: scale(1.1);
+        }
+
+        .work:hover .layer {
+            height: 100%;
+        }
+
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid #ff004f;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.5s;
+        }
+
+        .btn:hover {
+            background: #ff004f;
+        }
+
+        .contact-left {
+            flex-basis: 35%;
+        }
+
+        .contact-right {
+            flex-basis: 60%;
+        }
+
+        .contact-left p {
+            margin-top: 30px;
+        }
+
+        .contact-left p i {
+            color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+
+        .social-icons a:hover {
+            color: #ff004f;
+            transform: translateY(-5px);
+        }
+
+        .btn.btn1 {
+            display: inline-block;
+            background: #ff004f;
+        }
+
+        .contact-right form {
+            width: 100%;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #FFF;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        form.btn1 {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: #262626;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+
+        nav .fas {
+            display: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #header {
+                background-image: url('photos/image 2.png');
+                background-repeat: no-repeat;
+                background-position: top-right;
+                background-size: 70vw 70vw;
+                background-position-y: 20vw;
+                background-position-x: 40vw;
+            }
+
+            .header-text {
+                margin-top: 60%;
+                font-size: 20px;
+            }
+
+            .header-text h1 {
+                font-size: 20px;
+            }
+
+            nav .fas {
+                display: block;
+                font-size: 25px;
+            }
+
+            nav ul {
+                background: #ff004f;
+                position: fixed;
+                top: 0;
+                right: -200px;
+                width: 200px;
+                height: 100vh;
+                padding-top: 50px;
+                z-index: 2;
+                transition: right 0.5s;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 25px;
+            }
+
+            nav ul .fas {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                cursor: pointer;
+            }
+
+            #about {
+                margin-top: -30vw;
+            }
+
+            .sub-title {
+                font-size: 40px;
+            }
+
+            .about-col-1,
+            .about-col-2 {
+                flex-basis: 100%;
+            }
+
+            .about-col-1 {
+                margin-bottom: 30px;
+            }
+
+            .about-col-2 {
+                font-size: 14px;
+            }
+
+            .tab-links {
+                font-size: 16px;
+                margin-right: 20px;
+            }
+
+            .row1 {
+                display: block;
+            }
+
+            .contact-left,
+            .contact-right {
+                flex-basis: 100%;
+            }
+
+            .copyright {
+                font-size: 10px;
+            }
+        }
+    </style>
+<body>
+<div id="header">
+	<div class="container">
+		<nav>
+		<img src="photos/image 4.png"class="logo">
+		<ul id="sidemenu">
+			<li><a href="#header">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#services">Services</a></li>
+			<li><a href="#portfolio">Portfolio</a></li>
+			<li><a href="#contact">Contact</a></li>
+			<i class ="fas fa-times" onclick="closemenu()"></i>
+		</ul>
+		<i class="fas fa-bars" onclick="openmenu()"></i>
+		</nav>
+		<div class="header-text">
+			<p>Software Developer</p>
+			<h1>Hi, I'm <span>Clement</span><br> Mwangi From Kenya</h1>
+		</div>
+	</div>
+</div>
+
+<div id="about">
+	<div class="container">
+		<div class="row">
+			<div class="about-col-1">
+				<img src="photos/image 2.png">
+			</div>
+			<div class="about-col-2">
+				<h1 class="sub-title">About Me</h1>
+				    <p>
+     I am a skilled and versatile professional with a passion for technology and innovation. With a solid foundation in Full Stack Development, I bring over 3 years of experience in both Front-End Development, proficient in HTML, CSS and JavaScript. My expertise extends to Back-End technologies, including 3 years of hands-on experience with Python, Node.js, and Express.js.
+    </p>
+    <div class="tab-titles">
+    	<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+    	<p class="tab-links"onclick="opentab('experience')">Experience</p>
+    	<p class="tab-links"onclick="opentab('education')">Education</p>
+    </div>
+    <div class="tab-contents active-tab" id="skills">
+    	<ul>
+    		<li><span>Programming Languages</span><br>JavaScript/Python<br>Node.js/PHP</li>
+    		<li><span>Web Development Frameworks</span><br>React.js/Next.js<br> Django/Express.js</li>
+    		<li><span>Database Management</span><br>MySQL/PostgreSQL<br>MongoDB</li>
+    		<li><span>Version Control</span><br>Git</li>
+    		<li><span>Problem-Solving and Debugging</span><br> JavaScript console/Network analyzer<br>DOM inspector/Performance profilers</li>
+    	</ul>
+    </div>
+        <div class="tab-contents" id="experience">
+    	<ul>
+    		<li><span>2022-2023</span><br>Full-Stack Developer freelancing</li>
+    		<li><span>2021-2022</span><br>web Developer freelancing</li>
+    		<li><span>2020-2021</span><br>Back-end Developer freelancing</li>
+    		<li><span>2019-2020</span><br>Front-end Developer freelancing</li>
+    	</ul>
+    </div>
+        <div class="tab-contents" id="education">
+    	<ul>
+    		<li><span>2017-2019</span><br>SELF-TAUGHT</li>
+    	</ul>
+    </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="services">
+	<div class="container">
+		<h1 class="sub-title">My Services</h1>
+		<div class="services-list">
+			<div>
+				<i class="fa-solid fa-code"></i>
+			<h2>Custom Website Development</h2>
+			<p>Tailored solutions for businesses seeking unique and professionally designed websites.</p>
+			<a href="#">Learn more</a>
+		</div>
+			<div>
+			<h2>Web Application Development</h2>
+			<p>End-to-end development of scalable web applications to meet specific business needs.</p>
+			<a href="#">Learn more</a>
+		</div>
+			<div>
+			<h2>Responsive Design and Cross-Browser Compatibility</h2>
+			<p>Ensuring websites and applications are visually appealing and functional across various devices and browsers.</p>
+			<a href="#">Learn more</a>
+		</div>
+		<div>
+			<h2>Consultation and Collaboration</h2>
+			<p>Consultative approach to understand client requirements and provide tailored solutions.</p>
+			<a href="#">Learn more</a>
+		</div>
+		<div>
+			<h2>Maintenance and Support</h2>
+			<p>Ongoing maintenance services to keep websites and applications up-to-date with the latest technologies and security patches.</p>
+			<a href="#">Learn more</a>
+		</div>
+		<div>
+			<h2>Database Design and Management</h2>
+			<p>Design and implementation of robust and efficient database solutions.</p>
+			<a href="#">Learn more</a>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="portfolio">
+	<div class="container">
+		<h1 class="sub-title">My Work</h1>
+		<div class="work-list">
+			<div class="work">
+				<img src="photos/image 6.png">
+				<div class="layer">
+				<h3>dynamic website</h3>
+				<p>Fans download movies here at a cost of 10 ksh only</p>
+				<a href="#"></a>
+				</div>
+			</div>
+						<div class="work">
+				<img src="photos/image 8.png">
+								<div class="layer">
+				<h3>dynamic website</h3>
+				<p>Fans download movies here at a cost of 10 ksh only</p>
+				<a href="#"></a>
+				</div>
+			</div>
+						<div class="work">
+				<img src="photos/image 6.png">
+								<div class="layer">
+				<h3>dynamic website</h3>
+				<p>Fans download movies here at a cost of 10 ksh only</p>
+				<a href="#"></a>
+				</div>
+			</div>
+		</div>
+		<a href="" class="btn">See more</a>
+	</div>
+</div>
+
+
+
+
+
+<div id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="contact_left">
+				<h1 class="sub-title">Contact Me</h1>
+				<p>clementmburumwangi@gmail.com</p>
+				<p>+254757305550</p>
+				<div class="social-icons">
+					<a href=""  class="fa-brands fa-facebook"></a>
+					<a href=""  class="fa-brands fa-linkedin"></a>
+					<a href="" class="fa-brands fa-x-twitter"></a>
+					<a href="" class="fa-brands fa-instagram"></a>
+					<a href="" class="fa-brands fa-whatsapp"></a>
+				</div>
+				<a href="photos/resume.pdf" download class="btn btn1">Download CV</a>
+			</div>
+			<div class="contact_right">
+				<form>
+					<input type="text" name="Name" placeholder="Your Name" required>
+					<input type="email" name="Email" placeholder="Your Email" required>
+					<textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+					<button type="submit" class="btn btn1">Submit</button>
+				</form> 
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<P>Copyright © Clement. Developed by Clementdevs</P>
+	</div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+	let tablinks = document.getElementsByClassName('tab-links');
+	let tabcontents = document.getElementsByClassName('tab-contents');
+	function opentab(tabname) {
+		for(tablink of tablinks){
+			tablink.classList.remove("active-link");
+		}
+		for(tabcontent of tabcontents){
+			tabcontent.classList.remove("active-tab");
+		}
+		event.currentTarget.classList.add('active-link');
+		document.getElementById(tabname).classList.add('active-tab');
+	}
+</script>
+<script type="text/javascript">
+	var sidemenu = document.getElementById('sidemenu');
+	function openmenu() {
+	 	sidemenu.style.right="0";
+	 }
+	 	function closemenu() {
+	 	sidemenu.style.right="-200px";
+	 }
+</script>
+</body>
+</html>
