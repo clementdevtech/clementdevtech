@@ -70,7 +70,7 @@
             position: relative;
         }
 
-        /* mode themes switch */
+        /* .....mode themes switch */
         input[type="checkbox"] {
             display: none;
         }
@@ -119,7 +119,8 @@
         }                                           
         
         .bright-mode {
-             background: #f7f7f7
+             background: #f7f7f7;
+             color: #080808;
             transition: background-color 0.4s ease;
         }
         .dark-mode {
@@ -146,10 +147,10 @@
         .header-text h1 span {
             color: #ff004f;
         }
-
+/*..............about section.*/
         #about {
             padding: 80px 0;
-            color: #ababaa;
+            color: inherit;
         }
 
         .row {
@@ -172,9 +173,10 @@
         }
 
         .sub-title {
+            opacity: 1;
             font-size: 60px;
             font-weight: 600;
-            color: #fff;
+            color: inherit;
         }
 
         .tab-titles {
@@ -184,7 +186,7 @@
 
         .tab-links {
             margin-right: 50px;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 500;
             cursor: pointer;
             position: relative;
@@ -211,7 +213,7 @@
         }
 
         .tab-contents ul li span {
-            color: #b54769;
+            color: inherit;
             font-size: 14px;
         }
 
@@ -223,6 +225,7 @@
             display: block;
         }
 
+/*............services..............*/
         #services {
             padding: 30px 0;
         }
@@ -235,7 +238,6 @@
         }
 
         .services-list div {
-            background: #262626;
             padding: 40px;
             font-size: 13px;
             font-weight: 300;
@@ -261,32 +263,51 @@
             margin-top: 20px;
             display: inline-block;
         }
-
+        .service-blog{
+            display: none;
+        }
         .services-list div:hover {
             background: #ff004f;
             transform: translateY(-10px);
         }
 
+       /*........ portfolio.........*/
         #portfolio {
             padding: 50px 0;
         }
 
-        .work-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-gap: 40px;
+        .work-list{
+            width: 100%;
+            height: 50vw;
+            overflow-y: hidden;
+        }
+        .work-list-active{
+            width: 100%;
+            height: auto;
+            overflow-y: hidden;
+        }
+        .slide-section {
+            display: flex;
+            flex-wrap: wrap;
             margin-top: 50px;
+            gap: 3.5%;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
         }
 
         .work {
             border-radius: 10px;
             position: relative;
             overflow: hidden;
+            width: 30%;
         }
 
         .work img {
             width: 100%;
+            height: 100%;
             border-radius: 10px;
+            border: 1px solid #262626;
             display: block;
             transition: transform 0.5s;
         }
@@ -313,8 +334,11 @@
         .layer h3 {
             font-weight: 500;
             margin-bottom: 20px;
+            color: #fff;
         }
-
+        .layer p{
+            color: #fff;
+        }
         .layer a {
             margin-top: 20px;
             color: #ff004f;
@@ -336,7 +360,7 @@
             height: 100%;
         }
 
-        .btn {
+        .more{
             display: block;
             margin: 50px auto;
             width: fit-content;
@@ -344,11 +368,25 @@
             padding: 14px 50px;
             border-radius: 6px;
             text-decoration: none;
-            color: white;
+            color: inherit;
             transition: background 0.5s;
         }
 
-        .btn:hover {
+
+        /*...........contact section...................*/
+
+        .btn{
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid #ff004f;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #fff;
+            transition: background 0.5s;
+        }
+        .btn:hover, .more:hover{
             background: #ff004f;
         }
 
@@ -402,12 +440,13 @@
             width: 100%;
             border: 0;
             outline: none;
-            background: #262626;
+            background: inherit;
             padding: 15px;
             margin: 15px 0;
-            color: #FFF;
+            color: inherit;
             font-size: 18px;
             border-radius: 6px;
+            border: 1px solid #ddd;
         }
 
         form.btn1 {
@@ -416,7 +455,14 @@
             margin-top: 20px;
             cursor: pointer;
         }
-
+        .main_links{
+            text-decoration: none;
+            color: inherit;
+            margin-top: 20px;
+        }
+        .main_links:hover{
+            color: #ff004f;
+        }
         .copyright {
             width: 100%;
             text-align: center;
@@ -425,7 +471,9 @@
             font-weight: 300;
             margin-top: 20px;
         }
-
+        .copyright p{
+            color: #fff;
+        }
         nav .fas {
             display: none;
         }
@@ -546,6 +594,24 @@
                 display: block;
             }
 
+            .slide-section {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                height: auto;
+                
+            }
+            .work-list{
+                height: 190vw;
+            }
+            .work-list-active{
+                height: auto;
+            }
+            .work{
+                margin-top: 10%;
+                width: 100%;
+                height: 70%;
+            }
             .contact-left,
             .contact-right {
                 flex-basis: 100%;

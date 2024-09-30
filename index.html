@@ -7,6 +7,7 @@
     <title>Personal Portfolio Website - software developer</title>
    <script src="https://kit.fontawesome.com/31b957e4f6.js" crossorigin="anonymous"></script>
    <script type="text/javascript" src="function.js" defer></script>
+   <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
    <link rel="stylesheet" type="text/css" href="styles.css">
 <body>
 <div id="header">
@@ -52,8 +53,8 @@
     </p>
     <div class="tab-titles">
     	<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-    	<p class="tab-links"onclick="opentab('experience')">Experience</p>
-    	<p class="tab-links"onclick="opentab('education')">Education</p>
+    	<p class="tab-links" onclick="opentab('experience')">Experience</p>
+    	<p class="tab-links" onclick="opentab('education')">Education</p>
     </div>
     <div class="tab-contents active-tab" id="skills">
     	<ul>
@@ -87,36 +88,36 @@
 	<div class="container">
 		<h1 class="sub-title">My Services</h1>
 		<div class="services-list">
-			<div>
+			<div class="service">
 				<i class="fa-solid fa-code"></i>
 			<h2>Custom Website Development</h2>
 			<p>Tailored solutions for businesses seeking unique and professionally designed websites.</p>
-			<a href="#">Learn more</a>
+			<a href="#" class="service-blog" style="display: none;">Learn more</a>
 		</div>
-			<div>
+			<div class="service">
 			<h2>Web Application Development</h2>
 			<p>End-to-end development of scalable web applications to meet specific business needs.</p>
-			<a href="#">Learn more</a>
+			<a href="#" class="service-blog" style="display: none;">Learn more</a>
 		</div>
-			<div>
+			<div class="service">
 			<h2>Responsive Design and Cross-Browser Compatibility</h2>
 			<p>Ensuring websites and applications are visually appealing and functional across various devices and browsers.</p>
-			<a href="#">Learn more</a>
+			<a href="#" class="service-blog" style="display: none;">Learn more</a>
 		</div>
-		<div>
+		<div class="service">
 			<h2>Consultation and Collaboration</h2>
 			<p>Consultative approach to understand client requirements and provide tailored solutions.</p>
-			<a href="#">Learn more</a>
+			<a href="#" class="service-blog" style="display: none;">Learn more</a>
 		</div>
-		<div>
+		<div class="service">
 			<h2>Maintenance and Support</h2>
 			<p>Ongoing maintenance services to keep websites and applications up-to-date with the latest technologies and security patches.</p>
-			<a href="#">Learn more</a>
+			<a href="#" class="service-blog" style="display: none;">Learn more</a>
 		</div>
-		<div>
+		<div class="service">
 			<h2>Database Design and Management</h2>
 			<p>Design and implementation of robust and efficient database solutions.</p>
-			<a href="#">Learn more</a>
+			<a href="#" class="service-blog" style="display: none;">Learn more</a>
 		</div>
 		</div>
 	</div>
@@ -129,40 +130,61 @@
 	<div class="container">
 		<h1 class="sub-title">My Work</h1>
 		<div class="work-list">
+            <div class="slide-section">
 			<div class="work">
 				<img src="photos/image 6.png">
 				<div class="layer">
 				<h3>dynamic website</h3>
-				<p>Fans download movies here at a cost of 10 ksh only</p>
-				<a href="#"></a>
+				<p>Fans can  download thier favourite movies here at a cost of 10 ksh only.</p>
+				<a href="https://clementdevtech.github.io/movie-website/" target="blank">visit</a>
 				</div>
-			</div>
-						<div class="work">
+                </div>
+
+                <div class="work">
 				<img src="photos/image 8.png">
-								<div class="layer">
+				<div class="layer">
+				<h3>static website</h3>
+				<p>The owner of the site displays thier work which involves outside catering.</p>
+				<a href="https://clementdevtech.github.io/savourykitchens/" target="blank">visit</a>
+				</div>
+                </div>
+                <div class="work">
+				<img src="photos/image 10.jpeg">
+                <div class="layer">
 				<h3>dynamic website</h3>
-				<p>Fans download movies here at a cost of 10 ksh only</p>
-				<a href="#"></a>
+				<p>Users can learn cyber security skill and other related skills @ a cost of 5$ per month</p>
+				<a href="https://clementdevtech.github.io/netsafehub/" target="blank">visit</a>
 				</div>
 			</div>
-						<div class="work">
-				<img src="photos/image 6.png">
-								<div class="layer">
-				<h3>dynamic website</h3>
-				<p>Fans download movies here at a cost of 10 ksh only</p>
-				<a href="#"></a>
-				</div>
-			</div>
+                <div class="work">
+                <img src="photos/image 12.png">
+                <div class="layer">
+                <h3>static website !the site is not responsive on smaller device</h3>
+                <p>Fans download movies here at a cost of 10 ksh only</p>
+                <a href="https://clementdevtech.github.io/full-moon-interiors/" target="blank">visit</a>
+                </div>
+            </div>
+                <div style="display: none;" class="work">
+                <img src="photos/image 6.png">
+                <div class="layer">
+                <h3>dynamic website</h3>
+                <p>Fans download movies here at a cost of 10 ksh only</p>
+                <a href="#" target="blank">visit</a>
+                </div>
+            </div>
+        </div>
 		</div>
-		<a href="" class="btn">See more</a>
+		<a href="" class="more">See more</a>
 	</div>
 </div>
 
-
+<!-- blog secton-->
     <div id="blog">
         <h4 class="sub-title">My Blog</h4>
+        <div class="container">
         <div id="blog-posts">
         </div>
+    </div>
     </div>
 
 
@@ -171,23 +193,25 @@
 		<div class="row">
 			<div class="contact_left">
 				<h1 class="sub-title">Contact Me</h1>
-				<p>clementmburumwangi@gmail.com</p>
-				<p>+254757305550</p>
+				<a href="clementmburumwangi@gmail.com" class="main_links" target="blank">clementmburumwangi@gmail.com</p>
+				<a href="tel:+254757305550" class="main_links" target="blank">+254757305550</p>
 				<div class="social-icons">
-					<a href=""  class="fa-brands fa-facebook"></a>
-					<a href=""  class="fa-brands fa-linkedin"></a>
-					<a href="" class="fa-brands fa-x-twitter"></a>
-					<a href="" class="fa-brands fa-instagram"></a>
-					<a href="" class="fa-brands fa-whatsapp"></a>
+					<a href="https://www.facebook.com/61563866738222/posts/122117979308462224/?mibextid=rS40aB7S9Ucbxw6v"  class="fa-brands fa-facebook" target="blank"></a>
+					<a href="https://www.linkedin.com/in/clement-mburu-mwangi-b14027283/"  class="fa-brands fa-linkedin" target="blank"></a>
+					<a href="https://x.com/clementdevs" class="fa-brands fa-x-twitter" target="blank"></a>
+					<a href="https://www.instagram.com/clementdeveloper?igsh=YzljYTk1ODg3Zg==" class="fa-brands fa-instagram" target="blank"></a>
+                    <a href="https://github.com/clementdevtech" class="fa-brands fa-github" target="blank"></a>
+					<a href="https://wa.me/message/MJNUMVZRHMRZK1" class="fa-brands fa-whatsapp" target="blank"></a>
 				</div>
 				<a href="photos/resume.pdf" download class="btn btn1">Download CV</a>
 			</div>
 			<div class="contact_right">
-				<form action="https://formspree.io/f/meojvann" method="post">
-					<input type="text" name="Name" placeholder="Your Name" required>
-					<input type="email" name="Email" placeholder="Your Email" required>
-					<textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+				<form id="contactForm">
+					<input type="text" name="Name" id="name" placeholder="Your Name" autocomplete="name" required>
+					<input type="email" name="Email" id="email" placeholder="Your Email" autocomplete="email" required>
+					<textarea name="Message" id="message" rows="6" placeholder="Your Message" autocomplete="Message" required></textarea>
 					<button type="submit" class="btn btn1">Submit</button>
+                    <p id="responseMessage"></p>
 				</form> 
 			</div>
 		</div>

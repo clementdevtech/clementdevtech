@@ -1,30 +1,45 @@
 //link navigation
 const nav_links = document.querySelectorAll('nav-link');
-console.log(nav_links);
+//console.log(nav_links);
 
 
 // mode switch
     const modeSwitch = document.getElementById('mode-switch');
+     function servicebackground(style){
+    const services = document.querySelectorAll('.service');
+    services.forEach(service=>{
+        //console.log(style);
+       	service.style.background= style;
+    });
+}
     const body = document.body;
 
     const savedMode = localStorage.getItem('mode');
     if (savedMode) {
       body.classList.add(savedMode);
-      modeSwitch.checked = savedMode === 'bright-mode'; 
-    } else {
-      body.classList.add('dark-mode');
+      if(savedMode === 'bright-mode'){
+      	modeSwitch.checked = savedMode === 'bright-mode'; 
+      	servicebackground('silver');
+      	}else{
+      		body.classList.add('dark-mode');
+      		servicebackground('#262626');
+      		}
+      	} else {
+      		body.classList.add('dark-mode');
+      		servicebackground('#262626');
     }
 
     modeSwitch.addEventListener('change', () => {
-    	console
       if (modeSwitch.checked) {
         body.classList.remove('dark-mode');
         body.classList.add('bright-mode');
         localStorage.setItem('mode', 'bright-mode'); 
+        servicebackground('silver');
       } else {
         body.classList.remove('day-mode');
         body.classList.add('dark-mode');
         localStorage.setItem('mode', 'dark-mode');
+        servicebackground('#262626');
       }
     });
 
@@ -87,3 +102,58 @@ function fetchMarkdownFiles() {
 }
 
 document.addEventListener('DOMContentLoaded', fetchMarkdownFiles);
+
+
+//toggle work
+document.querySelector('.more').addEventListener('click',(event)=>{
+	event.preventDefault();
+	const worklist = document.querySelector('.work-list');
+	const work_list_active = document.querySelector('.work-list-active');
+	if (worklist) {
+		worklist.classList.toggle('work-list-active');
+		document.querySelector('.more').textContent='See less';
+	}else{
+        work_list_active.classList.toggle('.work-list');
+        document.querySelector('.more').textContent='See More';
+        work_list_active.scrollIntoView({ behavior: 'smooth' });
+	}
+});
+
+// contact section 
+  document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); 
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const responseMessage = document.getElementById('responseMessage');
+
+    if (!name || !email || !message) {
+      responseMessage.textContent = "All fields are required.";
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('Name', name);
+    formData.append('Email', email);
+    formData.append('Message', message);
+
+    try {
+      const response = await fetch('https://formspree.io/f/meojvann', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        responseMessage.textContent = "sent successfully, thank you for your message!";
+        document.getElementById('contactForm').reset();
+      } else {
+        responseMessage.textContent = "Oops! There was a problem submitting your form please try again later.";
+      }
+    } catch (error) {
+      responseMessage.textContent = "There was an error sending your message.";
+    }
+  });
