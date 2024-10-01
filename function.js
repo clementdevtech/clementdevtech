@@ -84,7 +84,7 @@ const blogPostsContainer = document.getElementById('blog-posts');
 
 function fetchMarkdownFiles() {
     const posts = [
-        'https://raw.githubusercontent.com/clementdevtech/clementdevtech/main/posts/debugging-tips'
+        'https://raw.githubusercontent.com/clementdevtech/clementdevtech/main/posts/debugging-tips.md'
     ];
 
     posts.forEach(url => {
