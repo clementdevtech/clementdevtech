@@ -479,6 +479,7 @@
         }
 
         @media only screen and (max-width: 600px) {
+
             #header {
                 background-image: url('photos/image 2.png');
                 background-repeat: no-repeat;
@@ -564,6 +565,9 @@
                 width: 25px; 
                 height: 25px;
     }
+            .logo{
+                display: none;
+            }
             #about {
                 margin-top: -30vw;
             }
