@@ -17,11 +17,11 @@
         #header {
             width: 100%;
             height: 100vh;
-            background-image: url('photos/image 2.png');
+            background-image: url('photos/DSC_3544.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: 30vw 30vw;
-            background-position-y: 7vw;
+            background-position-y: 10vw;
         }
 
         .container {
@@ -481,16 +481,21 @@
         @media only screen and (max-width: 600px) {
 
             #header {
-                background-image: url('photos/image 2.png');
+                height: 60vh;
+                background-image: url('photos/DSC_3544.png');
                 background-repeat: no-repeat;
                 background-position: top-right;
                 background-size: 70vw 70vw;
-                background-position-y: 20vw;
-                background-position-x: 40vw;
+                background-position-y: 10vw;
+                background-position-x: 20vw;
             }
 
+            .container {
+            padding: 20px 10%;
+        }
+
             .header-text {
-                margin-top: 60%;
+                margin-top: 10%;
                 font-size: 20px;
             }
 
@@ -584,7 +589,9 @@
             .about-col-1 {
                 margin-bottom: 30px;
             }
-
+            .about-col-1 img{
+                display: none;
+            }
             .about-col-2 {
                 font-size: 14px;
             }
@@ -625,3 +632,55 @@
                 font-size: 10px;
             }
         }
+
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateX(-100px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Apply Animations */
+.header-text {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.services-list div {
+    animation: slideIn 1s ease-in-out;
+}
+
+.work img {
+    transition: transform 0.5s;
+}
+
+.work:hover img {
+    transform: scale(1.1);
+}
+
+.social-icons a {
+    transition: transform 0.5s;
+}
+
+.social-icons a:hover {
+    animation: bounce 0.5s infinite;
+}
+
+/* Buttons */
+.btn {
+    transition: background 0.5s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #ff004f;
+    transform: scale(1.05);
+}
